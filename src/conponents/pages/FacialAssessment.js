@@ -19,7 +19,7 @@ const FacialAssessment = () => {
     
     <Layout>
       
-    <div className='flex xl:flex-row md:flex-col-reverse xsm:flex-col justify-center items-center' >
+    <div className='flex xl:flex-row md:flex-col-reverse xsm:flex-col xsm:justify-center xsm:items-center md:justify-start md:items-start' >
       <div className='xl:max-w-[49.9%] xsm:max-w-[375px] md:max-w-[100%] xl:h-[41vh] md:h-[41vh]  w-full xsm:pl-[14px] xsm:pr-[14px] md:pl-[0px] md:pr-[0px]'>
        <div className='3xl:h-[38vh]  xl:h-[43.2vh] md:h-[22.4vh]   md:w-full md:pt-[31px] xl:pt-[51px] 3xl:pt-[85px] 3xl:pb-[65px] md:pb-[28px] xsm:pb-[36px] xl:pb-[27px] 3xl:pl-[81px] xl:pl-[56px] md:pl-[24px] 3xl:border-b-[1.5px] xsm:border-b-[1px] border-solid border-[#7D828E] border-opacity-[0.15] flex flex-col justify-between'>
        <div className='xsm:pl-[2px] md:pl-[0px] xsm:pb-[36px]'><h1 className='3xl:text-[80px] md:text-[48px]  3xl:leading-[84px] xsm:text-[44px]  xsm:leading-[42px]  md:leading-[50px] font-[100] italic denton'>Introductory</h1>

@@ -138,7 +138,7 @@ const PersonalData = () => {
             <h1 className='3xl:text-[24px] xl:text-[18px] 3xl:leading-[28px] md:text-[20px] md:leading-[22px] xl:leading-[20px] font-[400] text-[#FFF] 3xl:max-w-[167px] md:max-w-[167px]  w-full'>Facial Aesthetic Assessments</h1>
           <div className='3xl:max-w-[330px] xl:max-w-[222px] md:max-w-[292px] w-full xl:pt-[14px] md:pt-[8px] md:mr-[15px]  xl:border-t-[1.5px] md:border-t-[1px] border-solid border-[#FFF] xl:border-opacity-[0.3] md:border-opacity-[0.4] flex items-center '>
           {UserInformation.map((i , index)=>(
-            <div key={index+ 'UserInformation'} className={` flex flex-col 3xl:gap-[5px] xl:gap-[3px] md:gap-[4px] uppercase`}>
+            <div key={index+ 'UserInformation'} className={`${i.title==='age /' && 'xl:w-[76px] md:w-[70px] 3xl:w-[64px]'} ${i.title==='gender /' && 'xl:w-[94px] md:w-[120px] 3xl:w-[124px]'} ${i.title==='descnent /' && 'w-[124px]'}  flex flex-col 3xl:gap-[5px] xl:gap-[3px] md:gap-[4px] uppercase`}>
          <span className={` font-[500] 3xl:text-[13px] xl:leading-[13px] xl:text-[11px] text-[#FFF] opacity-[0.6]`}>{i.title}</span>
          <span className='font-[500] 3xl:text-[16px] xl:text-[13px] xl:leading-[13px] text-[#FFF] opacity-[0.8]'>{i.desc}</span>
         </div>
