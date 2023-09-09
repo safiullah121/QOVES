@@ -1,0 +1,11 @@
+   <Layout>
+      <div className='flex'>
+       <div className="3xl:max-w-[49.9%] 3xl:h-[79vh] w-full">
+        <div className="3xl:h-[34.1%] w-full border-b-[1.5px] border-solid border-[#7D828E] border-opacity-[0.15]"></div>
+        <div className="3xl:h-[65%] 3xl:pt-[127px] 3xl:pl-[77px] text-[#7D828E]"></div>
+       </div>
+       <div className="3xl:max-w-[50.1%] 3xl:h-[79vh] w-full flex items-center justify-center border-l-[1.5px] border-solid border-[#7D828E] border-opacity-[0.15]">
+
+       </div>
+      </div>
+    </Layout>
