@@ -1,49 +1,114 @@
-import React, { useState , useContext} from 'react'
-import FacialAssessment from './FacialAssessment'
-import ImageUpload from './ImageUpload'
-import InfoChecking from './InfoChecking'
-import PersonalData from './PersonalData'
-import ReportFormatting from './ReportFormatting'
-import ReportCompleted from './ReportCompleted'
-import MyContext from '../../Context'
+import React, { useState, useContext } from "react";
+import FacialAssessment from "./FacialAssessment";
+import ImageUpload from "./ImageUpload";
+import InfoChecking from "./InfoChecking";
+import PersonalData from "./PersonalData";
+import ReportFormatting from "./ReportFormatting";
+import ReportCompleted from "./ReportCompleted";
+import MyContext from "../../Context";
 
 const Assessment = () => {
-     const {navigation , setnavigation} = useContext(MyContext)
-     
-  return (
-<>
-          {navigation === '/' && <FacialAssessment 
-             handleNextClick={() => setnavigation('/PersonalData')}
-          />}
-          {navigation === '/PersonalData' && (
-            <PersonalData
-              handleNextClick={() => setnavigation('/ImageUpload')}
-              handlePrevClick={() => setnavigation('/')}
-            />
-          )}
-          {navigation === '/ImageUpload' && (
-            <ImageUpload
-              handleNextClick={() => setnavigation('/InfoChecking')}
-              handlePrevClick={() => setnavigation('/PersonalData')}
-            />
-          )}
-          {navigation === '/InfoChecking' && (
-            <InfoChecking
-              handleNextClick={() => setnavigation('/ReportFormatting')}
-              handlePrevClick={() => setnavigation('/ImageUpload')}
-            />
-          )}
-          {navigation === '/ReportFormatting' && (
-            <ReportFormatting
-              handleNextClick={() =>  setnavigation('/ReportCompleted')}
-              handlePrevClick={() => setnavigation('/InfoChecking')}
-            />
-          )}
-          {navigation === '/ReportCompleted' && <ReportCompleted 
-           handlePrevClick={() => setnavigation('/ReportFormatting')}
-           />}
-    </>
-  )
-}
+  const { navigation, setnavigation, setTextRevealForNextBtn } =
+    useContext(MyContext);
 
-export default Assessment
+  return (
+    <>
+      {navigation === "/" && (
+        <FacialAssessment
+          handleNextClick={() => {
+            setTextRevealForNextBtn(true);
+            setTimeout(() => {
+              setnavigation("/PersonalData");
+              setTextRevealForNextBtn(false);
+            }, 500);
+          }}
+        />
+      )}
+      {navigation === "/PersonalData" && (
+        <PersonalData
+          handleNextClick={() => {
+            setTextRevealForNextBtn(true);
+            setTimeout(() => {
+              setnavigation("/ImageUpload");
+              setTextRevealForNextBtn(false);
+            }, 500);
+          }}
+          handlePrevClick={() => {
+            setTextRevealForNextBtn(true);
+            setTimeout(() => {
+              setnavigation("/");
+              setTextRevealForNextBtn(false);
+            }, 500);
+          }}
+        />
+      )}
+      {navigation === "/ImageUpload" && (
+        <ImageUpload
+          handleNextClick={() => {
+            setTextRevealForNextBtn(true);
+            setTimeout(() => {
+              setnavigation("/InfoChecking");
+              setTextRevealForNextBtn(false);
+            }, 500);
+          }}
+          handlePrevClick={() => {
+            setTextRevealForNextBtn(true);
+            setTimeout(() => {
+              setnavigation("/PersonalData");
+              setTextRevealForNextBtn(false);
+            }, 500);
+          }}
+        />
+      )}
+      {navigation === "/InfoChecking" && (
+        <InfoChecking
+          handleNextClick={() => {
+            setTextRevealForNextBtn(true);
+            setTimeout(() => {
+              setnavigation("/ReportFormatting");
+              setTextRevealForNextBtn(false);
+            }, 500);
+          }}
+          handlePrevClick={() => {
+            setTextRevealForNextBtn(true);
+            setTimeout(() => {
+              setnavigation("/ImageUpload");
+              setTextRevealForNextBtn(false);
+            }, 500);
+          }}
+        />
+      )}
+      {navigation === "/ReportFormatting" && (
+        <ReportFormatting
+          handleNextClick={() => {
+            setTextRevealForNextBtn(true);
+            setTimeout(() => {
+              setnavigation("/ReportCompleted");
+              setTextRevealForNextBtn(false);
+            }, 500);
+          }}
+          handlePrevClick={() => {
+            setTextRevealForNextBtn(true);
+            setTimeout(() => {
+              setnavigation("/InfoChecking");
+              setTextRevealForNextBtn(false);
+            }, 500);
+          }}
+        />
+      )}
+      {navigation === "/ReportCompleted" && (
+        <ReportCompleted
+          handlePrevClick={() => {
+            setTextRevealForNextBtn(true);
+            setTimeout(() => {
+              setnavigation("/ReportFormatting");
+              setTextRevealForNextBtn(false);
+            }, 500);
+          }}
+        />
+      )}
+    </>
+  );
+};
+
+export default Assessment;

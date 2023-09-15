@@ -3,6 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+  overflow-x: hidden;
+  
+}
 @font-face {
     font-family: 'DentonTestThin100';
     src: url('./fonts/DentonTest-ThinItalic.otf') format('opentype');
@@ -41,4 +45,129 @@
   }
   .clamp{
     padding-top:clamp( 100px ,3.6vw , 46px) ;
+  }
+  @media (min-height: 1025px) and (min-width: 768px) and (max-width: 1280px){
+    .viewport1{
+      height: 93.75vh;
+    }
+    .mdHeight{
+      height: 43.75%; /* Adjust the height as needed */
+    }
+
+    .mdHeight2{
+      height: 80%; /* Adjust the height as needed */
+    } 
+  
+  }
+  @media (min-height: 1050px) and (min-width: 375px) and (max-width: 767px){
+    .viewport1{
+      height: 85.3vh;
+      justify-content: space-between;
+    }
+    .xsmHeight{
+      height: 51.91%; /* Adjust the height as needed */
+    }
+    .xsmHeight2{
+      height: 48%; /* Adjust the height as needed */
+    } 
+
+  }
+  @media (min-height: 1025px) and (min-width: 768px) and (max-width: 1280px){
+    .viewport2{
+      height: 77.14vh;
+    }
+    .mdHeightp{
+      height: 36.7%; /* Adjust the height as needed */
+    }
+
+    .mdHeight2p{
+      height: 63.29%; /* Adjust the height as needed */
+    } 
+  
+  }
+  @media (min-height: 813px) and (min-width: 375px) and (max-width: 767px){
+    .viewport2{
+      height: 77.14vh;
+    
+    }
+    .xsmHeightp{
+      height: 45.7%; /* Adjust the height as needed */
+    }
+    .xsmHeight2p{
+      height: 54.2%; /* Adjust the height as needed */
+    } 
+
+  }
+  @media (min-height: 825px) and (min-width: 375px) and (max-width: 767px){
+    .viewport3{
+      height: 78.125vh;
+      justify-content: space-between;
+    }
+    .xsmHeighti{
+      height: 45.7%; /* Adjust the height as needed */
+    }
+    .xsmHeight2i{
+      height: 54.23%; /* Adjust the height as needed */
+    } 
+
+  }
+  @media (min-height: 1025px) and (min-width: 768px) and (max-width: 1280px){
+    .viewport3{
+      height: 78.125vh;
+    }
+    .mdHeighti{
+      height: 40%; /* Adjust the height as needed */
+    }
+
+    .mdHeight2i{
+      height: 60%; /* Adjust the height as needed */
+    } 
+  
+  }
+  @media (min-height: 825px) and (min-width: 375px) and (max-width: 767px){
+    .viewport4{
+      height: 78.125vh;
+ 
+    }
+    .xsmHeightf{
+      height: 45.7%; /* Adjust the height as needed */
+    }
+    .xsmHeight2f{
+      height: 54.23%; /* Adjust the height as needed */
+    } 
+
+  }
+  @media (min-height: 1025px) and (min-width: 768px) and (max-width: 1280px){
+    .viewport4{
+      height: 78.125vh;
+    }
+    .mdHeightf{
+      height: 41.25%; /* Adjust the height as needed */
+    }
+
+    .mdHeight2f{
+      height: 58.75%; /* Adjust the height as needed */
+    } 
+  
+  }
+  @media (min-height: 825px) and (min-width: 375px) and (max-width: 767px){
+    .viewport5{
+      height: 78.125vh;
+ 
+    }
+    .xsmHeightRf{
+      height: 78.3%; /* Adjust the height as needed */
+    }
+  
+
+  }
+  @media (min-height: 1025px) and (min-width: 768px) and (max-width: 1280px){
+    .viewport5{
+      height: 78.125vh;
+    }
+    .mdHeightRf{
+      height: 89.375%; /* Adjust the height as needed */
+    }
+
+  
   }
