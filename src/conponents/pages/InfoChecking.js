@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Layout from "../common/Layout";
 import TextReveal from "../Animations/TextReveal";
+import MyContext from "../../Context";
 
 const InfoChecking = (props) => {
+  const { userDetails } = useContext(MyContext);
+
   const Recommendations = [
     "Remove your glasses",
     "Look directly at camera",
@@ -18,23 +21,19 @@ const InfoChecking = (props) => {
         <div className="xl:max-w-[49.9%] xl:h-[79vh] xsmHeightf mdHeightf w-full">
           <div className="xl:h-[34.1%] xsm:h-[31%] md:h-auto  3xl:pt-[99px] xl:pt-[58px] md:pt-[30px] md:pb-[32px] md:pl-[24px]  xsm:pt-[46px] xsm:pb-[22px] xsm:pl-[14px] 3xl:pl-[74px] xl:pl-[49px] w-full xl:border-b-[1.5px] md:border-b-[0px] xsm:border-b-[1px] border-solid border-[#7D828E] border-opacity-[0.15]">
             <TextReveal
-              DivClases={
-                "overflow-y-hidden 3xl:h-[101px] xl:h-[72px] md:h-[36px] xsm:h-[52px]"
-              }
+              DivClases={"overflow-y-hidden "}
               translation={
                 "3xl:translate-y-[130px] xl:translate-y-[100px] md:translate-y-[60px] xsm:translate-y-[90px]"
               }
             >
-              <h1 className="3xl:max-w-[366px] xl:max-w-[278px] md:max-w-[222px] xsm:max-w-[226px] w-full 3xl:text-[52px] md:text-[34px] md:leading-[36px] xsm:text-[30px] xsm:leading-[26px] xl:text-[36px] xl:leading-[36px] 3xl:leading-[50px] tracking-[-1.3px] text-[#121212] font-[400] PPNeue">
+              <h1 className="3xl:max-w-[366px] xl:pb-[10px] xl:max-w-[278px] md:max-w-[222px] xsm:max-w-[226px] w-full 3xl:text-[52px] md:text-[34px] md:leading-[36px] xsm:text-[30px] xsm:leading-[26px] xl:text-[36px] xl:leading-[36px] 3xl:leading-[50px] tracking-[-1.3px] text-[#121212] font-[400] PPNeue">
                 Your information is completed
               </h1>
             </TextReveal>
           </div>
           <div className="xl:h-[65%] md:h-auto xsm:h-[65.3%] 3xl:pt-[18%] xl:pt-[18%] md:pt-0 xsm:pt-[43px] 3xl:pl-[77px] xl:pl-[52px] md:pb-[89px] xl:pb-[0px] md:pl-[24px] xsm:pl-[14px] text-[#7D828E]">
             <TextReveal
-              DivClases={
-                "overflow-y-hidden 3xl:h-[236px] xl:h-[191px] md:h-[107px] xsm:h-[183px]"
-              }
+              DivClases={"overflow-y-hidden"}
               translation={
                 "3xl:translate-y-[270px] xl:translate-y-[220px] md:translate-y-[140px] xsm:translate-y-[210px]"
               }
@@ -176,7 +175,7 @@ const InfoChecking = (props) => {
             <div className="absolute z-30 md:flex xsm:hidden  xl:max-w-[282px] 3xl:max-w-[100%] md:max-w-[82.5%] 3xl:h-[100%] xl:h-[340px] md:h-[88.37%] w-full  3xl:border-[0px] md:border-[1px] border-solid border-[#FFFFFF] md:mx-[8.7%]  md:my-[6%] xl:mx-[41px]  xl:my-[40px] 3xl:mx-0  3xl:my-0 ">
               <div className="absolute top-[17px] left-[16px]  3xl:max-w-[120px] xl:max-w-[81px] md:max-w-[167px] w-full ">
                 <p className="3xl:text-[24px] xl:text-[18px] md:text-[20px] font-[400] 3xl:leading-[28px] md:leading-[22px] xl:leading-[20px] text-[#FFF] tracking-[-0.36px]">
-                  Alice Mendel
+                  {userDetails.name}
                 </p>
               </div>
               <div className="absolute bottom-0 flex items-center 3xl:w-[93%] md:w-[92%] xl:w-[89%] 3xl:h-[59px]  3xl:mx-[16px] xl:mx-[15px] 3xl:pt-[11px] md:mx-[15px] md:pt-[8px]  xl:pt-[12px] 3xl:pb-[13px] xl:pb-[10px] md:pb-[12px] border-t-[1.5px] border-solid border-[#fff] border-opacity-[0.3] uppercase 3xl:leading-[13px] font-[500] text-[#FFF]">
@@ -185,7 +184,7 @@ const InfoChecking = (props) => {
                     age /
                   </p>
                   <p className="xl:text-[13px] 3xl:text-[16px] xl:leading-[13px] md:text-[16px] md:leading-[14px]">
-                    27
+                    {userDetails.age}
                   </p>
                 </div>
                 <div className="3xl:max-w-[113px] xl:max-w-[110px] md:max-w-[120px] w-full flex flex-col 3xl:gap-[5px] xl:gap-[2px] md:gap-[7px]">
@@ -193,7 +192,7 @@ const InfoChecking = (props) => {
                     gender /
                   </p>
                   <p className="xl:text-[13px] 3xl:text-[16px] xl:leading-[13px] md:text-[16px] md:leading-[14px]">
-                    female
+                    {userDetails.gender}
                   </p>
                 </div>
                 <div className="3xl:max-w-[113px] w-full flex flex-col 3xl:gap-[5px] xl:gap-[2px] md:gap-[7px]">
@@ -201,7 +200,7 @@ const InfoChecking = (props) => {
                     descnent /
                   </p>
                   <p className="xl:text-[13px] 3xl:text-[16px] xl:leading-[13px] md:text-[16px] md:leading-[14px]">
-                    white
+                    {userDetails.group}
                   </p>
                 </div>
               </div>

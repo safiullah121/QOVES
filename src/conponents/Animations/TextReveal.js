@@ -7,9 +7,9 @@ const TextReveal = ({ translation, children, DivClases }) => {
 
   useEffect(() => {
     if (TextRevealForNextBtn) {
-      setTextRevealAnimation(translation + " ease-in-out duration-[0.8s]");
+      setTextRevealAnimation(translation + " ease-in-out duration-[1.2s]");
     } else {
-      setTextRevealAnimation("translate-y-[0px] ease-in-out duration-[0.9s]");
+      setTextRevealAnimation("translate-y-[0px] ease-in-out duration-[1s]");
     }
   }, [TextRevealForNextBtn]);
 

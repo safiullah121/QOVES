@@ -97,7 +97,7 @@ const Layout = ({ children, handleNextClick, handlePrevClick }) => {
       </div>
       <div
         className={` w-full  ${
-          navigation === "/" ? "h-[10vh]" : " xl:h-[10.5vh] md:h-[7.8vh]"
+          navigation === "/" ? "h-[10vh]" : " xl:h-[10vh] md:h-[7.8vh] "
         } xsm:hidden xl:flex xl:border-b-[1.5px] md:border-b-[1px]  border-solid ${
           navigation === "/ReportCompleted"
             ? "border-[#FFF]  border-opacity-[0.2]"
@@ -162,18 +162,22 @@ const Layout = ({ children, handleNextClick, handlePrevClick }) => {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="14"
-              className="3xl:w-[11.333px] 3xl:h-[8px] xl:h-[7px] xl:w-[10px] group-hover:xl:scale-[2.3] group-hover:3xl:scale-[2.5] ease-in duration-300"
+              className={` 3xl:w-[11.333px] 3xl:h-[8px] xl:h-[7px] xl:w-[10px] group-hover:xl:scale-[2.3] group-hover:3xl:scale-[2.5] ease-in duration-300`}
               height="10"
               viewBox="0 0 14 10"
               fill="none"
             >
               <path
                 d="M13.3333 5H2M2 5L6 1M2 5L6 9"
-                stroke="#121212"
+                stroke={navigation == "/" ? "#9b9999" : "#121212"}
                 stroke-width="1.5"
               />
             </svg>
-            <p className="PPNeue500 3xl:text-[14px] xl:text-[11px] font-[500] 3xl:leading-[21px] xl:leading-[13px] uppercase group-hover:3xl:translate-x-[18px] group-hover:xl:translate-x-[14px] ease-in duration-300">
+            <p
+              className={`${
+                navigation == "/" && "text-[#9b9999]"
+              } PPNeue500 3xl:text-[14px] xl:text-[11px] font-[500] 3xl:leading-[21px] xl:leading-[13px] uppercase group-hover:3xl:translate-x-[18px] group-hover:xl:translate-x-[14px] ease-in duration-300`}
+            >
               prev
             </p>
           </button>{" "}
@@ -207,7 +211,9 @@ const Layout = ({ children, handleNextClick, handlePrevClick }) => {
             className={`group flex justify-end items-center h-[24px] 3xl:gap-[7px] xl:gap-[10px] xl:pr-[9px] max-w-[68px] w-full ${TranslateAnimationNext} ease-linear duration-[0.6s]`}
             onClick={handleNextClick}
           >
-            <p className="PPNeue500 3xl:text-[14px] xl:text-[11px] font-[500] 3xl:leading-[21px] xl:leading-[13px] uppercase  group-hover:3xl:translate-x-[-18px] group-hover:xl:translate-x-[-14px] ease-in duration-300">
+            <p
+              className={` PPNeue500 3xl:text-[14px] xl:text-[11px] font-[500] 3xl:leading-[21px] xl:leading-[13px] uppercase  group-hover:3xl:translate-x-[-18px] group-hover:xl:translate-x-[-14px] ease-in duration-300`}
+            >
               next
             </p>
             <svg
@@ -218,7 +224,7 @@ const Layout = ({ children, handleNextClick, handlePrevClick }) => {
             >
               <path
                 d="M0.666667 5H12M12 5L8 1M12 5L8 9"
-                stroke="#121212"
+                stroke={"#121212"}
                 stroke-width="1.5"
               />
             </svg>
@@ -283,7 +289,7 @@ const Layout = ({ children, handleNextClick, handlePrevClick }) => {
       </div>
       {navigation !== "/" && (
         <div
-          className={`w-full  bg-transparent md:bottom-0 md:border-t-[1px] 3xl:border-t-[1.5px] border-solid ${
+          className={`w-full xl:fixed  bg-transparent md:bottom-0 md:border-t-[1px] 3xl:border-t-[1.5px] border-solid ${
             navigation === "/ReportCompleted"
               ? "border-[#FFF]  border-opacity-[0.2] xsm:pb-[9px]"
               : "border-[#7D828E/15]"

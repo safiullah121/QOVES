@@ -53,23 +53,19 @@ const ImageUpload = (props) => {
         <div className="3xl:max-w-[49.9%] xl:h-[79vh] mdHeighti xsmHeighti w-full flex flex-col ">
           <div className="  3xl:pt-[99px] xl:pt-[58px] xsm:h-[44.44%] 3xl:pl-[74px] xl:pl-[49px]  md:pt-[31px] md:pb-[36px] md:pl-[24px] xsm:pt-[46px] xsm:pb-[22px] xsm:pl-[14px]  w-full xl:border-b-[1.5px] md:border-b-[0px] xsm:border-b-[1px] border-solid border-[#7D828E] border-opacity-[0.15] ">
             <TextReveal
-              DivClases={
-                "overflow-y-hidden 3xl:h-[101px] xl:h-[72px] md:h-[36px] xsm:h-[52px]"
-              }
+              DivClases={"overflow-y-hidden  h-fit"}
               translation={
                 "3xl:translate-y-[130px] xl:translate-y-[100px] md:translate-y-[60px] xsm:translate-y-[90px]"
               }
             >
-              <h1 className="3xl:max-w-[301px] xl:max-w-[160px] md:max-w-[100%] xsm:max-w-[141px] w-full 3xl:text-[52px] xl:text-[36px] 3xl:leading-[50px] md:text-[34px] md:leading-[36px] xsm:text-[30px] xsm:leading-[26px] xl:leading-[36px] md:tracking-[-1.3px] xsm:tracking-[-0.6px] text-[#121212] font-[400] PPNeue">
+              <h1 className="3xl:max-w-[301px] xl:pb-[10px] xl:max-w-[160px] md:max-w-[100%] xsm:max-w-[141px] w-full 3xl:text-[52px] xl:text-[36px] 3xl:leading-[50px] md:text-[34px] md:leading-[36px] xsm:text-[30px] xsm:leading-[26px] xl:leading-[36px] md:tracking-[-1.3px] xsm:tracking-[-0.6px] text-[#121212] font-[400] PPNeue">
                 Upload your image
               </h1>
             </TextReveal>
           </div>
           <div className="3xl:h-[65%] xl:h-[66.66%] md:h-auto xsm:h-[44.44%]  3xl:pt-[148px] xl:pt-[11.6vh]  xl:pl-[51px] md:pl-[24px] 3xl:pl-[76px] text-[#7D828E] md:pb-[104px] md:border-b-[0px]  xsm:border-b-[1px] border-solid border-[#7D828E] border-opacity-[0.15]">
             <TextReveal
-              DivClases={
-                "overflow-y-hidden 3xl:h-[228px] xl:h-[198px] md:h-[113px] xsm:h-[117px]"
-              }
+              DivClases={"overflow-y-hidden "}
               translation={
                 "3xl:translate-y-[270px] xl:translate-y-[220px] md:translate-y-[140px] xsm:translate-y-[140px]"
               }

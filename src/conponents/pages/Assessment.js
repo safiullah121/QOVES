@@ -8,8 +8,13 @@ import ReportCompleted from "./ReportCompleted";
 import MyContext from "../../Context";
 
 const Assessment = () => {
-  const { navigation, setnavigation, setTextRevealForNextBtn } =
-    useContext(MyContext);
+  const {
+    navigation,
+    setnavigation,
+    setTextRevealForNextBtn,
+    setimageCropingAnimation,
+    setimageCropingAnimationForPersonalData,
+  } = useContext(MyContext);
 
   return (
     <>
@@ -17,10 +22,22 @@ const Assessment = () => {
         <FacialAssessment
           handleNextClick={() => {
             setTextRevealForNextBtn(true);
+            setimageCropingAnimation(true);
             setTimeout(() => {
               setnavigation("/PersonalData");
-              setTextRevealForNextBtn(false);
+            }, 600);
+            setTimeout(() => {
+              setimageCropingAnimation(false);
             }, 500);
+            setTimeout(() => {
+              setimageCropingAnimationForPersonalData(true);
+            }, 500);
+            setTimeout(() => {
+              setimageCropingAnimationForPersonalData(false);
+            }, 610);
+            setTimeout(() => {
+              setTextRevealForNextBtn(false);
+            }, 700);
           }}
         />
       )}
@@ -34,6 +51,8 @@ const Assessment = () => {
             }, 500);
           }}
           handlePrevClick={() => {
+            setimageCropingAnimation(false);
+            setimageCropingAnimationForPersonalData(false);
             setTextRevealForNextBtn(true);
             setTimeout(() => {
               setnavigation("/");

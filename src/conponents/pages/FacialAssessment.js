@@ -7,7 +7,7 @@ import MyContext from "../../Context";
 import TextReveal from "../Animations/TextReveal";
 
 const FacialAssessment = (props) => {
-  const { TextRevealForNextBtn } = useContext(MyContext);
+  const { imageCropingAnimation } = useContext(MyContext);
   const [ButtonAnimation, setButtonAnimation] = useState(false);
 
   const handleAssessmentButtonClick = () => {
@@ -42,7 +42,7 @@ const FacialAssessment = (props) => {
             <div className="xsm:pl-[2px] md:pl-[0px] xsm:pb-[36px] xl:pb-[0px] md:pb-[45px] 3xl:h-[140px] overflow-y-hidden">
               <TextReveal
                 translation={"translate-y-[170px]"}
-                DivClases={"overflow-y-hidden 3xl:h-[140px]"}
+                DivClases={"overflow-y-hidden "}
               >
                 <h1 className="3xl:text-[80px] md:text-[48px]  3xl:leading-[84px] xsm:text-[44px]  xsm:leading-[42px]  md:leading-[50px] font-[100] italic denton">
                   Introductory
@@ -53,9 +53,7 @@ const FacialAssessment = (props) => {
               </TextReveal>
             </div>
             <TextReveal
-              DivClases={
-                "w-full 3xl:h-[35px] xl:h-[83px] xsm:h-[84px] md:h-[35px] overflow-y-hidden "
-              }
+              DivClases={"w-full  overflow-y-hidden "}
               translation={
                 " 3xl:translate-y-[60px] md:translate-y-[60px] xl:translate-y-[120px] xsm:translate-y-[120px]"
               }
@@ -79,9 +77,7 @@ const FacialAssessment = (props) => {
           </div>
           <div className="3xl:h-[52vh] xl:h-[46.4vh]   md:w-full 3xl:pt-[42px] xl:pt-[24px] md:pt-[20px] xsm:pt-[25px] 3xl:pl-[81px] xl:pl-[52px] md:pl-[24px] md:pb-[20px] md:pr-[24px] xl:pb-[15px]  flex xl:flex-col md:flex-row xsm:flex-col justify-between">
             <TextReveal
-              DivClases={
-                "3xl:h-[63px] overflow-y-hidden xl:h-[48px] md:h-[100px] xsm:h-[57px]"
-              }
+              DivClases={"overflow-y-hidden "}
               translation={
                 " 3xl:translate-y-[80px] md:translate-y-[120px] xl:translate-y-[60px] xsm:translate-y-[80px]"
               }
@@ -148,8 +144,10 @@ const FacialAssessment = (props) => {
             </div>
           </div>
         </div>
-        <div className=" xl:bg-FormPhoto md:bg-FormPhoto_4 xsm:bg-FormPhoto_2 bg-cover mdHeight2 xsmHeight2 bg-center 3xl:max-w-[50.1%] 3xl:h-[90vh] xsm:max-w-[375px] md:max-w-[100%]  xl:h-[90vh]  xl:pt-0 md:pt-[120px] xsm:pt-[50px] w-full flex xl:items-center md:items-center xsm:pb-[40px] xsm:mt-[26px] md:mt-[0px] xl:pb-[0px]">
-          <div className="3xl:max-w-[48.5%] xl:max-w-[48.23%] md:max-w-[322px] xsm:max-w-[77.3%] 3xl:pt-[18px] md:pt-[15px] xsm:pt-[10px] 3xl:pl-[19px] md:pl-[15px] xsm:pl-[10px] xsm:pb-[12px] xl:pt-[15px] xl:pl-[15px] 3xl:pb-[14px] md:pb-[12px] xl:pb-[13px] mx-auto  w-full xl:h-[47.8%]  md:my-0 xsm:my-auto 3xl:border-[1.5px] xsm:border-[1px] border-solid border-[#FFF] flex flex-col xl:justify-between xl:gap-0 md:gap-[266px] xsm:gap-[246px]">
+        <div
+          className={` xl:bg-FormPhoto md:bg-FormPhoto_4 xsm:bg-FormPhoto_2 bg-cover mdHeight2 xsmHeight2 bg-center 3xl:max-w-[50.1%] 3xl:h-[90vh] xsm:max-w-[375px] md:max-w-[100%]  xl:h-[90vh]  xl:pt-0 md:pt-[120px] xsm:pt-[50px] w-full flex xl:items-center md:items-center xsm:pb-[40px] xsm:mt-[26px] md:mt-[0px] xl:pb-[0px]`}
+        >
+          {/* <div className="3xl:max-w-[48.5%] xl:max-w-[48.23%] md:max-w-[322px] xsm:max-w-[77.3%] 3xl:pt-[18px] md:pt-[15px] xsm:pt-[10px] 3xl:pl-[19px] md:pl-[15px] xsm:pl-[10px] xsm:pb-[12px] xl:pt-[15px] xl:pl-[15px] 3xl:pb-[14px] md:pb-[12px] xl:pb-[13px] mx-auto  w-full xl:h-[47.8%]  md:my-0 xsm:my-auto 3xl:border-[1.5px] xsm:border-[1px] border-solid border-[#FFF] flex flex-col xl:justify-between xl:gap-0 md:gap-[266px] xsm:gap-[246px]">
             <h1 className="PPNeue 3xl:text-[24px] xl:text-[18px] 3xl:leading-[28px] md:text-[18px] md:leading-[22px] xl:leading-[20px] xsm:text-[20px] xsm:leading-[22px] font-[400] text-[#FFF] 3xl:max-w-[167px] xl:max-w-[167px] xsm:max-w-[167px]  w-full">
               Facial Aesthetic Assessments
             </h1>
@@ -178,7 +176,7 @@ const FacialAssessment = (props) => {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </Layout>
