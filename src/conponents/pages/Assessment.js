@@ -25,7 +25,7 @@ const Assessment = () => {
             setimageCropingAnimation(true);
             setTimeout(() => {
               setnavigation("/PersonalData");
-            }, 600);
+            }, 500);
             setTimeout(() => {
               setimageCropingAnimation(false);
             }, 500);
@@ -34,10 +34,10 @@ const Assessment = () => {
             }, 500);
             setTimeout(() => {
               setimageCropingAnimationForPersonalData(false);
-            }, 615);
+            }, 515);
             setTimeout(() => {
               setTextRevealForNextBtn(false);
-            }, 700);
+            }, 500);
           }}
         />
       )}
@@ -51,11 +51,11 @@ const Assessment = () => {
             }, 500);
           }}
           handlePrevClick={() => {
-            setimageCropingAnimation(false);
             setimageCropingAnimationForPersonalData(true);
             setTextRevealForNextBtn(true);
             setTimeout(() => {
               setnavigation("/");
+              setimageCropingAnimationForPersonalData(false);
               setTextRevealForNextBtn(false);
             }, 700);
           }}

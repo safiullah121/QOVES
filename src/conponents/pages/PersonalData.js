@@ -191,7 +191,7 @@ const PersonalData = (props) => {
           <div
             className={`${
               imageCropingAnimationForPersonalData
-                ? "3xl:max-w-[100%] xl:max-w-[364px] md:max-w-[391px]  z-20 w-full 3xl:h-[90vh] md:h-[450px] xl:h-[420px] mt-[90px] ease-in duration-[0.7s]"
+                ? "3xl:max-w-[100%] xl:max-w-[364px] md:max-w-[391px]  z-20 w-full 3xl:h-[90vh] md:h-[450px] xl:h-[420px] margin ease-in duration-[0.7s]"
                 : " 3xl:max-w-[433px] xl:max-w-[364px] md:max-w-[391px] z-20 w-full 3xl:h-[490px] md:h-[450px] xl:h-[420px] ease-in duration-[0.7s] "
             }  3xl:bg-FormPhoto md:bg-FormPhoto_2 xl:bg-FormPhoto_3  bg-cover bg-center flex items-center justify-center`}
           >
