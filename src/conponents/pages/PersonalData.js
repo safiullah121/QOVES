@@ -167,7 +167,7 @@ const PersonalData = (props) => {
                     </div>
                   </div>
                 </div>
-                <div className="3xl:max-w-[346px] xl:max-w-[330px] w-full flex items-center 3xl:mt-[27px]">
+                <div className="3xl:max-w-[346px] xl:max-w-[330px] w-full flex items-center">
                   <p className="3xl:text-[24px] xl:text-[18px] md:text-[18px] 3xl:leading-[28px] xl:leading-[20px] md:leading-[18px] 3xl:tracking-[-0.36px] md:tracking-[-0.27px] xsm:text-[20px] xsm:leading-[22px]">
                     Email to
                   </p>
@@ -191,11 +191,17 @@ const PersonalData = (props) => {
           <div
             className={`${
               imageCropingAnimationForPersonalData
-                ? "3xl:max-w-[100%] xl:max-w-[364px] md:max-w-[391px]  z-20 w-full 3xl:h-[90vh] md:h-[450px] xl:h-[420px] mt-[120px]"
+                ? "3xl:max-w-[100%] xl:max-w-[364px] md:max-w-[391px]  z-20 w-full 3xl:h-[90vh] md:h-[450px] xl:h-[420px] mt-[90px] ease-in duration-[0.7s]"
                 : " 3xl:max-w-[433px] xl:max-w-[364px] md:max-w-[391px] z-20 w-full 3xl:h-[490px] md:h-[450px] xl:h-[420px] ease-in duration-[0.7s] "
             }  3xl:bg-FormPhoto md:bg-FormPhoto_2 xl:bg-FormPhoto_3  bg-cover bg-center flex items-center justify-center`}
           >
-            {/* <div className="xl:max-w-[78%] md:max-w-[82%] 3xl:pt-[18px] xl:pt-[15px] md:pt-[15px] 3xl:pl-[19px] xl:pl-[15px] md:pl-[15px] 3xl:pb-[14px] md:pb-[13px] mx-auto  w-full xl:h-[79%] md:h-[84.4%]  xl:border-[1.5px] md:border-[1px] border-solid border-[#FFF] flex flex-col justify-between">
+            <div
+              className={`${
+                imageCropingAnimationForPersonalData
+                  ? "3xl:max-w-[405px] xl:max-w-[48.23%] md:max-w-[322px] xsm:max-w-[77.3%]  w-full xl:h-[47.8%] 3xl:h-[461px] ease-in duration-[0.7s]"
+                  : " 3xl:max-w-[350px] md:max-w-[82%] ease-in duration-[0.7s]  w-full 3xl:h-[410px] md:h-[84.4%]"
+              }  3xl:pt-[18px] xl:pt-[15px] md:pt-[15px] 3xl:pl-[19px] xl:pl-[15px] md:pl-[15px] 3xl:pb-[14px] md:pb-[13px] mx-auto   xl:border-[1.5px] md:border-[1px] border-solid border-[#FFF] flex flex-col justify-between`}
+            >
               <h1 className="PPNeue 3xl:text-[24px] xl:text-[18px] 3xl:leading-[28px] md:text-[18px] md:leading-[22px] xl:leading-[20px] font-[400] text-[#FFF] 3xl:max-w-[167px] md:max-w-[167px]  w-full">
                 Facial Aesthetic Assessments
               </h1>
@@ -224,7 +230,7 @@ const PersonalData = (props) => {
                   </div>
                 ))}
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
