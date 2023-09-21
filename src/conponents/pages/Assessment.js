@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import FacialAssessment from "./FacialAssessment";
 import ImageUpload from "./ImageUpload";
 import InfoChecking from "./InfoChecking";
@@ -14,6 +14,11 @@ const Assessment = () => {
     setTextRevealForNextBtn,
     setimageCropingAnimation,
     setimageCropingAnimationForPersonalData,
+    userDetails,
+    nextBtnShakingAnime,
+    setnextBtnShakingAnime,
+    uploadedImage,
+    settypewriterEffect,
   } = useContext(MyContext);
 
   return (
@@ -34,28 +39,37 @@ const Assessment = () => {
             }, 500);
             setTimeout(() => {
               setimageCropingAnimationForPersonalData(false);
-            }, 515);
+            }, 550);
             setTimeout(() => {
               setTextRevealForNextBtn(false);
             }, 500);
-          }}
+          }
+        }
         />
       )}
       {navigation === "/PersonalData" && (
         <PersonalData
           handleNextClick={() => {
-            setTextRevealForNextBtn(true);
-            setTimeout(() => {
-              setnavigation("/ImageUpload");
-              setTextRevealForNextBtn(false);
-            }, 500);
+            if (!Object.values(userDetails).some((value) => value === "")) {
+              setTextRevealForNextBtn(true);
+              setnextBtnShakingAnime(null);
+              setTimeout(() => {
+                setnavigation("/ImageUpload");
+                setTextRevealForNextBtn(false);
+              }, 500);
+            } else {
+              setnextBtnShakingAnime(2);
+              setTimeout(() => {
+                setnextBtnShakingAnime(null);
+              }, 1100);
+            }
           }}
           handlePrevClick={() => {
             setimageCropingAnimationForPersonalData(true);
             setTextRevealForNextBtn(true);
             setTimeout(() => {
               setnavigation("/");
-              setimageCropingAnimationForPersonalData(false);
+              setimageCropingAnimationForPersonalData(true);
               setTextRevealForNextBtn(false);
             }, 700);
           }}
@@ -64,11 +78,19 @@ const Assessment = () => {
       {navigation === "/ImageUpload" && (
         <ImageUpload
           handleNextClick={() => {
-            setTextRevealForNextBtn(true);
-            setTimeout(() => {
-              setnavigation("/InfoChecking");
-              setTextRevealForNextBtn(false);
-            }, 500);
+            if (uploadedImage !== "") {
+              setnextBtnShakingAnime(null);
+              setTextRevealForNextBtn(true);
+              setTimeout(() => {
+                setnavigation("/InfoChecking");
+                setTextRevealForNextBtn(false);
+              }, 500);
+            } else {
+              setnextBtnShakingAnime(2);
+              setTimeout(() => {
+                setnextBtnShakingAnime(null);
+              }, 1100);
+            }
           }}
           handlePrevClick={() => {
             setTextRevealForNextBtn(true);
@@ -82,6 +104,10 @@ const Assessment = () => {
       {navigation === "/InfoChecking" && (
         <InfoChecking
           handleNextClick={() => {
+            settypewriterEffect(1);
+            setTimeout(() => {
+              settypewriterEffect(2);
+            }, 2000);
             setTextRevealForNextBtn(true);
             setTimeout(() => {
               setnavigation("/ReportFormatting");
@@ -104,6 +130,7 @@ const Assessment = () => {
             setTimeout(() => {
               setnavigation("/ReportCompleted");
               setTextRevealForNextBtn(false);
+              settypewriterEffect(true);
             }, 500);
           }}
           handlePrevClick={() => {

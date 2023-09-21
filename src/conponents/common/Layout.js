@@ -2,7 +2,51 @@ import { React, useContext, useEffect, useState } from "react";
 import MyContext from "../../Context";
 
 const Layout = ({ children, handleNextClick, handlePrevClick }) => {
-  const { navigation, setnavigation } = useContext(MyContext);
+  const {
+    navigation,
+    setnavigation,
+    uploadedImage,
+    userDetails,
+    nextBtnShakingAnime,
+    setnextBtnShakingAnime,
+    settypewriterEffect,
+  } = useContext(MyContext);
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      // Check if any input element is currently focused
+      const isInputFocused = document.activeElement.tagName === "INPUT";
+      if (e.key === "Enter") {
+        {
+          navigation !== "/ReportCompleted" && handleNextClick();
+        }
+      }
+      if (!isInputFocused) {
+        if (e.key === "ArrowRight" || e.key === "Enter") {
+          {
+            navigation !== "/ReportCompleted" && handleNextClick();
+          }
+        } else if (e.key === "ArrowLeft" || e.key === "Backspace") {
+          {
+            navigation !== "/" && handlePrevClick();
+          }
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [
+    navigation,
+    userDetails,
+    uploadedImage,
+    nextBtnShakingAnime,
+    setnextBtnShakingAnime,
+    settypewriterEffect,
+  ]);
+
   const [TranslateAnimationPrev, setsetTranslateAnimationPrev] = useState(
     "xl:translate-x-[-100px] 3xl:translate-x-[-120px] md:translate-x-[-80px] xsm:translate-x-[-60px]"
   );
@@ -37,9 +81,20 @@ const Layout = ({ children, handleNextClick, handlePrevClick }) => {
     <div
       className={`${
         navigation === "/ReportCompleted" &&
-        " bg-ReportCompleted bg-cover bg-center xl:h-[100vh] md:h-full xsm:h-[100%] w-full"
-      }`}
+        "relative  xl:h-[100vh] md:h-full xsm:h-[100%] w-full"
+      } overflow-hidden pixelated `}
     >
+      <div className="pixelated-div absolute z-[-50] w-full h-full">
+        <img
+          src={uploadedImage}
+          alt=""
+          className={
+            navigation == "/ReportCompleted"
+              ? " w-full pixelated-image"
+              : "hidden"
+          }
+        />
+      </div>
       <div
         className={`${
           navigation === "/"
@@ -102,7 +157,7 @@ const Layout = ({ children, handleNextClick, handlePrevClick }) => {
           navigation === "/ReportCompleted"
             ? "border-[#FFF]  border-opacity-[0.2]"
             : "border-[#7D828E/15]"
-        } 3xl:pt-[21px] xl:pt-[10px]`}
+        } 3xl:pt-[21px] xl:pt-[10px] `}
       >
         <div className="xl:bg-white PPNeue500  3xl:w-fit xl:w-fit justify-center w-full 3xl:h-[50px] xl:h-[40px] flex mx-auto">
           <div className="flex items-center 3xl:py-[18px] 3xl:px-[22px] xl:py-[17px] xl:px-[18px]  3xl:border-b-[1.5px] xl:border-b-[1px]  xl:border-t-[1px] 3xl:border-t-[1.5px]  xl:border-l-[1px]  3xl:border-l-[1.5px]  3xl:border-r-[1.5px] xl:border-r-[1px] border-solid border-[#1212121A] cursor-pointer">
@@ -156,7 +211,7 @@ const Layout = ({ children, handleNextClick, handlePrevClick }) => {
           } flex items-center  `}
         >
           <button
-            onClick={handlePrevClick}
+            onClick={navigation !== "/" && handlePrevClick}
             className={`group ${TranslateAnimationPrev} ease-linear duration-[0.6s] flex justify-start items-center h-[24px]  xl:pl-[7px]  3xl:gap-[7px] xl:gap-[10px] max-w-[68px] w-full `}
           >
             <svg
@@ -169,14 +224,20 @@ const Layout = ({ children, handleNextClick, handlePrevClick }) => {
             >
               <path
                 d="M13.3333 5H2M2 5L6 1M2 5L6 9"
-                stroke={navigation == "/" ? "#9b9999" : "#121212"}
+                stroke={
+                  navigation == "/" || navigation == "/ReportCompleted"
+                    ? "#b5b3b3"
+                    : "#121212"
+                }
                 stroke-width="1.5"
               />
             </svg>
             <p
               className={`${
-                navigation == "/" && "text-[#9b9999]"
-              } PPNeue500 3xl:text-[14px] xl:text-[11px] font-[500] 3xl:leading-[21px] xl:leading-[13px] uppercase group-hover:3xl:translate-x-[18px] group-hover:xl:translate-x-[14px] ease-in duration-300`}
+                navigation == "/" || navigation == "/ReportCompleted"
+                  ? "text-[#b5b3b3]"
+                  : ""
+              } PPNeue500 3xl:text-[14px] xl:text-[11px] font-[500] 3xl:leading-[21px] xl:leading-[13px] uppercase group-hover:3xl:translate-x-[18px] group-hover:xl:translate-x-[14px] ease-in duration-300 `}
             >
               prev
             </p>
@@ -208,23 +269,65 @@ const Layout = ({ children, handleNextClick, handlePrevClick }) => {
           } flex items-center justify-end  `}
         >
           <button
-            className={`group flex justify-end items-center h-[24px] 3xl:gap-[7px] xl:gap-[10px] xl:pr-[9px] max-w-[68px] w-full ${TranslateAnimationNext} ease-linear duration-[0.6s]`}
+            className={`${
+              nextBtnShakingAnime == 2 && "shake"
+            } group flex justify-end items-center h-[24px] 3xl:gap-[7px] xl:gap-[10px] xl:pr-[9px] max-w-[68px] w-full ${TranslateAnimationNext} ease-linear duration-[0.6s] `}
             onClick={handleNextClick}
           >
             <p
-              className={` PPNeue500 3xl:text-[14px] xl:text-[11px] font-[500] 3xl:leading-[21px] xl:leading-[13px] uppercase  group-hover:3xl:translate-x-[-18px] group-hover:xl:translate-x-[-14px] ease-in duration-300`}
+              className={`${
+                Object.values(userDetails).some((value) => value === "") &&
+                navigation == "/PersonalData" &&
+                "text-[#b5b3b3] duration-0  transition-none"
+              } ${
+                uploadedImage == "" &&
+                navigation == "/ImageUpload" &&
+                "text-[#b5b3b3] duration-0  transition-none"
+              } PPNeue500 3xl:text-[14px] xl:text-[11px] font-[500] 3xl:leading-[21px] xl:leading-[13px] uppercase  ${
+                !Object.values(userDetails).some((value) => value === "") &&
+                navigation == "/PersonalData" &&
+                "group-hover:3xl:translate-x-[-18px] group-hover:xl:translate-x-[-14px] duration-[0.3s]"
+              } ${
+                !uploadedImage == "" &&
+                navigation == "/ImageUpload" &&
+                "group-hover:3xl:translate-x-[-18px] group-hover:xl:translate-x-[-14px] "
+              }${
+                navigation == "/" ||
+                navigation == "/InfoChecking" ||
+                navigation == "/ReportFormatting" ||
+                navigation == "/ReportCompleted"
+                  ? "group-hover:3xl:translate-x-[-18px] group-hover:xl:translate-x-[-14px]"
+                  : ""
+              } ${
+                navigation == "/ReportCompleted" && "text-[#b5b3b3]"
+              } ease-in duration-300`}
             >
               next
             </p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="3xl:w-[11.333px] 3xl:h-[8px] xl:h-[7px] xl:w-[10px] group-hover:xl:scale-[2.3] group-hover:3xl:scale-[2.5] ease-in duration-300"
+              className={`3xl:w-[11.333px] 3xl:h-[8px] xl:h-[7px] xl:w-[10px] ${
+                (uploadedImage == "" && navigation == "/ImageUpload") ||
+                (!Object.values(userDetails).some((value) => value === "")
+                  ? "group-hover:xl:scale-[2.3] group-hover:3xl:scale-[2.5]"
+                  : "")
+              }${
+                navigation == "/" &&
+                "group-hover:xl:scale-[2.3] group-hover:3xl:scale-[2.5]"
+              } ease-in duration-300`}
               viewBox="0 0 14 10"
               fill="none"
             >
               <path
                 d="M0.666667 5H12M12 5L8 1M12 5L8 9"
-                stroke={"#121212"}
+                stroke={
+                  (Object.values(userDetails).some((value) => value === "") &&
+                    navigation == "/PersonalData") ||
+                  (uploadedImage == "" && navigation == "/ImageUpload") ||
+                  navigation == "/ReportCompleted"
+                    ? "#b5b3b3"
+                    : "#121212"
+                }
                 stroke-width="1.5"
               />
             </svg>
@@ -244,7 +347,7 @@ const Layout = ({ children, handleNextClick, handlePrevClick }) => {
         }  border-t-[1px] border-solid  md:border-opacity-[0.2] xsm:border-opacity-[0.15] xl:border-opacity-[0.15] flex justify-between`}
       >
         <div
-          onClick={handlePrevClick}
+          onClick={navigation !== "/" && handlePrevClick}
           className={`group flex items-center  gap-[6px] md:h-[24px] `}
         >
           <svg
@@ -289,7 +392,7 @@ const Layout = ({ children, handleNextClick, handlePrevClick }) => {
       </div>
       {navigation !== "/" && (
         <div
-          className={`w-full xl:fixed  bg-transparent md:bottom-0 md:border-t-[1px] 3xl:border-t-[1.5px] border-solid ${
+          className={`w-full  bg-transparent md:bottom-0 md:border-t-[1px] 3xl:border-t-[1.5px] border-solid ${
             navigation === "/ReportCompleted"
               ? "border-[#FFF]  border-opacity-[0.2] xsm:pb-[9px]"
               : "border-[#7D828E/15]"

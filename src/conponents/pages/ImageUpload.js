@@ -1,11 +1,34 @@
-import { useState } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import React from "react";
 import Layout from "../common/Layout";
 import TextReveal from "../Animations/TextReveal";
+import MyContext from "../../Context";
+import axios from "axios";
 
 const ImageUpload = (props) => {
+  const { uploadedImage, setuploadedImage } = useContext(MyContext);
   const [AddImageHover, setAddImageHover] = useState(false);
   const [checkingUploadImage, setcheckingUploadImage] = useState(false);
+  const fileInputRef = useRef(null);
+
+  useEffect(() => {
+    if (uploadedImage !== "") {
+      setcheckingUploadImage(true);
+    }
+  }, [uploadedImage]);
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = async (event) => {
+        setuploadedImage(event.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+  console.log(uploadedImage);
   const Recommendations = [
     "Remove your glasses",
     "Look directly at camera",
@@ -44,6 +67,7 @@ const ImageUpload = (props) => {
         "3xl:w-[84px] md:w-[57px] xsm:w-[39px] w-full absolute xl:bottom-[27.5%] xl:left-[8.2%] md:bottom-[20.8%] md:left-[23%]  xsm:left-[11px] xsm:bottom-[57px] ",
     },
   ];
+
   return (
     <Layout
       handleNextClick={props.handleNextClick}
@@ -131,46 +155,50 @@ const ImageUpload = (props) => {
             ))}
             <div
               onClick={() => {
-                setcheckingUploadImage(true);
+                // setcheckingUploadImage(true);
               }}
               className="relative xl:h-[59%] xl:max-w-[50%] md:max-w-[240px] xsm:h-[76.6%] md:h-auto  xsm:max-w-[210px] w-full xl:border-[1.5px] md:border-[1px] xsm:border-[1px] border-solid border-[#C4C6CA] flex flex-col items-center md:justify-end xsm:justify-end xl:gap-[6%] md:gap-[0px] xsm:gap-[10px] md:pt-[33px] md:pb-[18px] xl:pt-[0px] xl:pb-[0px] "
             >
+              <input
+                id="fileInput"
+                type="file"
+                ref={fileInputRef}
+                className=" hidden"
+                accept="image/*"
+                onChange={handleFileChange}
+              />
               <div className=" w-full  flex xl:items-end 3xl:items-start justify-center ">
                 <img
                   src="/img/Uploading.svg"
                   alt=""
                   className="3xl:max-w-[280px] xl:max-w-[183px] md:max-w-[183px] xsm:max-w-[153px] w-full"
                 />
-                <div
+
+                <label
+                  htmlFor="fileInput"
                   onMouseEnter={() => {
                     setAddImageHover(true);
                   }}
                   onMouseLeave={() => {
                     setAddImageHover(false);
                   }}
-                  className="absolute  3xl:bottom-[37%] md:bottom-[34%] 3xl:right-[9%] md:right-[5%] 3xl:h-[46px] xl:h-[40px] 3xl:max-w-[57px] xl:max-w-[57px] md:max-w-[47px] xsm:hidden  w-full  md:flex flex-col"
+                  className="absolute custom-file-input-button 3xl:bottom-[37%] md:bottom-[34%] 3xl:right-[9%] md:right-[5%] 3xl:h-[46px] xl:h-[40px] 3xl:max-w-[57px] xl:max-w-[57px] md:max-w-[47px] xsm:hidden  w-full  md:flex flex-col"
                 >
-                  <button
-                    onClick={() => {
-                      setcheckingUploadImage(true);
-                    }}
+                  <span
                     className={`w-full  uppercase 3xl:h-[25px] md:h-[20px] 3xl:max-w-[39px] md:max-w-[33px] xl:max-w-[30px] bg-[#E3E5E7] 3xl:text-[16px] 3xl:leading-[18px] xl:text-[11px] xl:leading-[13px] md:text-[13px] md:leading-[15px] font-[500] tracking-[-0.32px] text-[#121212] ${
                       AddImageHover ? "bg-[#eeeef1]" : "bg-[#E3E5E7]"
                     }`}
                   >
                     add
-                  </button>
-                  <button
-                    onClick={() => {
-                      setcheckingUploadImage(true);
-                    }}
+                  </span>
+                  <span
                     className={`w-full 3xl:max-w-[57px] xl:max-w-[43px] md:max-w-[47px] uppercase 3xl:h-[25px] md:h-[20px] bg-[#E3E5E7] 3xl:text-[16px] 3xl:leading-[18px] xl:text-[11px] xl:leading-[13px] md:text-[13px] md:leading-[15px] font-[500] tracking-[-0.32px] text-[#121212] ${
                       AddImageHover ? "bg-[#eeeef1]" : "bg-[#E3E5E7]"
                     }`}
                   >
                     image
-                  </button>
-                </div>
+                  </span>
+                </label>
               </div>
               <div className="3xl:max-w-[176px] md:max-w-[126px] xsm:max-w-[111px] 3xl:h-[60px] text-[#7D828E] mb-[22px] xl:mt-[6%] md:mt-[0px] ">
                 <h1 className="3xl:text-[24px] font-[400] 3xl:leading-[28px] md:text-[20px] xl:text-[18px] xl:leading-[20px] xsm:text-[20px] xsm:leading-[22px]  md:leading-[22px] text-center">
@@ -181,7 +209,7 @@ const ImageUpload = (props) => {
           </div>
         ) : (
           <div className="3xl:max-w-[50.1%] xl:max-w-[50.1%] md:max-w-[100%] xl:h-[79vh] mdHeight2i xsmHeight2i md:pt-[35px] xl:pt-[0px] xl:pb-[0px]  md:pb-[35px] xsm:pt-[60px] xsm:pb-[35px]  w-full flex items-center justify-center xl:border-l-[1.5px] md:border-b-[1px]  border-solid border-[#7D828E] border-opacity-[0.15] ">
-            <div className="relative 3xl:h-[59%] xl:h-[73%]   3xl:max-w-[50%] xl:max-w-[70%] md:max-w-[390px]  xsm:max-w-[210px]  w-full xl:border-[1.5px] md:border-[1px] xsm:border-[1px] border-solid border-[#C4C6CA] flex flex-col justify-between xsm:py-[5px] xsm:px-[6px] xsm:gap-[6px] md:gap-0 ">
+            <div className="relative 3xl:h-[470px] xl:h-[420px]   3xl:max-w-[392px] xl:max-w-[364px] md:max-w-[390px]  xsm:max-w-[210px]  w-full xl:border-[1.5px] md:border-[1px] xsm:border-[1px] border-solid border-[#C4C6CA] flex flex-col justify-between xsm:py-[5px] xsm:px-[6px] xsm:gap-[6px] md:gap-0 ">
               <div className="3xl:h-[45px] xl md:h-[40px] xsm:h-[24px]  w-full 3xl:border-b-[1.5px] xsm:border-b-[1px] 3xl:pl-[14px] 3xl:pr-[16px] xl:pl-[10px] md:pr-[10px] md:pl-[10px] xl:pr-[10px] border-dashed border-[#C4C6CA] flex items-center 3xl:justify-center xl:justify-between uppercase">
                 <p className="text-[#7D828E] 3xl:text-[16px] 3xl:leading-[18px] 3xl:tracking-[-0.32px] xl:text-[11px] xl:leading-[13px] xsm:text-[13px] xsm:leading-[16px]  md:text-[13px] md:leading-[15px] xl:tracking-[-0.22px]  xsm:tracking-[-0.26px] 3xl:max-w-[77px] xl:max-w-[52px] md:max-w-[70px]  w-full md:flex xsm:hidden">
                   upload //
@@ -192,11 +220,7 @@ const ImageUpload = (props) => {
                 </p>
               </div>
               <div className="xl:max-w-[95%] md:max-w-[95%] xsm:max-w-[100%]  w-full xl:h-[86%] md:h-[83.7%] xsm:h-[85.6%]  mx-auto my-auto flex items-center justify-center">
-                <img
-                  src="/img/UploadedImage.png"
-                  alt=""
-                  className="w-full h-full"
-                />
+                <img src={uploadedImage} alt="" className="w-full h-full" />
               </div>
             </div>
           </div>

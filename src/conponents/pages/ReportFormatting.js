@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "../common/Layout";
+import Typewriter from "typewriter-effect";
 
 const ReportFormatting = (props) => {
   const reportDivs = [
@@ -51,9 +52,18 @@ const ReportFormatting = (props) => {
     >
       <div className=" xl:h-[79vh] h-full  flex justify-center items-center md:pt-0 ">
         <div className="relative 3xl:h-[82%] xl:h-[78.4%] mdHeightRf xsmHeightRf  xl:pt-[0px] xl:pb-[0px] md:pt-[291px] md:pb-[267px] xsm:pt-[177px] xsm:pb-[173px] 3xl:max-w-[88.8%] xl:max-w-[91.8%]  md:max-w-[93%] w-full flex items-center justify-center md:mt-[30px] md:mb-[20px]  xsm:mt-[83px] xsm:mb-[45px]">
-          <h1 className="text-center italic 3xl:text-[180px] xl:text-[96px] md:text-[96px] xsm:text-[60px] font-[100] 3xl:leading-[160px] md:leading-[96px]  xsm:leading-[60px] text-[#233137] dentonCond">
-            Report <br /> is forming...
-          </h1>
+          <div className="3xl:w-[723px]  3xl:h-[327px] xl:w-[440px]  xl:h-[192px] md:w-[440px]  md:h-[192px] xsm:w-[280px]  xsm:h-[112px] flex items-start text-center italic 3xl:text-[150px] xl:text-[96px] md:text-[96px] xsm:text-[60px] font-[100] 3xl:leading-[160px] md:leading-[96px]  xsm:leading-[60px] text-[#233137] dentonCond">
+            <Typewriter
+              onInit={(typewriter) => {
+                typewriter.typeString("Preparing Your Report...").start();
+              }}
+              options={{
+                cursor: "",
+                delay: 70, // Set cursor to an empty string to hide it
+              }}
+              className="hide-cursor" // Add a CSS class to the Typewriter component
+            />
+          </div>
           {reportDivs.map((i, index) => (
             <div className={`${i.classes}`} key={index + "report"}>
               <img src={i.src} alt="" />

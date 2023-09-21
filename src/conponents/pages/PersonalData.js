@@ -103,9 +103,7 @@ const PersonalData = (props) => {
                           onChange={handleInputsChange}
                           className="PPNeue500 pr-[5px] mr-[8px] outline-none xl:border-b-[1.5px]  3xl:pb-[4px] xsm:border-b-[1px] border-solid border-[#121212] 3xl:text-[24px]  md:text-[18px] 3xl:leading-[29px] xl:leading-[24px] md:leading-[22px] md:tracking-[-0.36px] xl:tracking-[-0.36px] xsm:text-[20px] xsm:leading-[24px] font-[500] text-[#121212] tracking-[-0.36px]"
                         >
-                          <option value="Enter your pronoun">
-                            Enter your pronoun
-                          </option>
+                          <option value="">Enter your pronoun</option>
                           <option value="He/Him"> He/Him</option>
                           <option value="She/Her">She/Her</option>
                           <option value="They/Them">They/Them</option>
@@ -123,9 +121,7 @@ const PersonalData = (props) => {
                           onChange={handleInputsChange}
                           className="PPNeue500 pr-[5px] md:ml-[8px] mr-[8px] outline-none xl:border-b-[1.5px]  3xl:pb-[4px] xsm:border-b-[1px] border-solid border-[#121212] 3xl:text-[24px]  md:text-[18px] 3xl:leading-[29px] xl:leading-[24px] md:leading-[22px] md:tracking-[-0.36px] xl:tracking-[-0.36px] xsm:text-[20px] xsm:leading-[24px] font-[500] text-[#121212] tracking-[-0.36px]"
                         >
-                          <option value="enter your ethnic group">
-                            enter your ethnic group
-                          </option>
+                          <option value="">enter your ethnic group</option>
                           <option value="Cuscasian"> Cuscasian</option>
                           <option value="African">African</option>
                           <option value="Asian">Asian</option>
@@ -153,9 +149,7 @@ const PersonalData = (props) => {
                         onChange={handleInputsChange}
                         className="PPNeue500 pr-[5px] ml-[8px] mr-[8px] outline-none xl:border-b-[1.5px]  3xl:pb-[4px] xsm:border-b-[1px] border-solid border-[#121212] 3xl:text-[24px]  md:text-[18px] 3xl:leading-[29px] xl:leading-[24px] md:leading-[22px] md:tracking-[-0.36px] xl:tracking-[-0.36px] xsm:text-[20px] xsm:leading-[24px] font-[500] text-[#121212] tracking-[-0.36px]"
                       >
-                        <option value="enter your biological gender">
-                          enter your biological gender
-                        </option>
+                        <option value="">enter your biological gender</option>
                         <option value=" Male"> Male</option>
                         <option value="Female">Female</option>
                         <option value="Other">Other</option>
@@ -191,44 +185,52 @@ const PersonalData = (props) => {
           <div
             className={`${
               imageCropingAnimationForPersonalData
-                ? "3xl:max-w-[100%] xl:max-w-[364px] md:max-w-[391px]  z-20 w-full 3xl:h-[90vh] md:h-[450px] xl:h-[420px] margin ease-in duration-[0.7s]"
-                : " 3xl:max-w-[433px] xl:max-w-[364px] md:max-w-[391px] z-20 w-full 3xl:h-[490px] md:h-[450px] xl:h-[420px] ease-in duration-[0.7s] "
-            }  3xl:bg-FormPhoto md:bg-FormPhoto_2 xl:bg-FormPhoto_3  bg-cover bg-center flex items-center justify-center`}
+                ? "xl:absolute top-0 flex justify-center w-full xl:h-[90vh] items-center ease-in 3xl:duration-[0.6s] xl:duration-[0.7s]"
+                : "xl:absolute top-0 flex justify-center w-full xl:h-[79vh] items-center ease-in 3xl:duration-[0.6s] xl:duration-[0.7s]"
+            }`}
           >
             <div
               className={`${
                 imageCropingAnimationForPersonalData
-                  ? "3xl:max-w-[405px] xl:max-w-[48.23%] md:max-w-[322px] xsm:max-w-[77.3%]  w-full xl:h-[47.8%] 3xl:h-[461px] ease-in duration-[0.7s]"
-                  : " 3xl:max-w-[350px] md:max-w-[82%] ease-in duration-[0.7s]  w-full 3xl:h-[410px] md:h-[84.4%]"
-              }  3xl:pt-[18px] xl:pt-[15px] md:pt-[15px] 3xl:pl-[19px] xl:pl-[15px] md:pl-[15px] 3xl:pb-[14px] md:pb-[13px] mx-auto   xl:border-[1.5px] md:border-[1px] border-solid border-[#FFF] flex flex-col justify-between`}
+                  ? "xl:max-w-[100%]  md:max-w-[391px]  z-20 w-full xl:h-[90vh]  ease-in 3xl:duration-[0.6s] xl:duration-[0.7s] 3xl:bg-110% xl:bg-110%"
+                  : " 3xl:max-w-[433px] xl:max-w-[364px]  z-20 w-full 3xl:h-[490px]  xl:h-[420px] ease-in 3xl:duration-[0.6s] xl:duration-[0.7s] 3xl:bg-120% xl:bg-120%"
+              }  3xl:bg-FormPhoto md:bg-FormPhoto_2 md:h-[450px] md:max-w-[391px] xl:bg-FormPhoto bg-center  bg-no-repeat   flex items-center justify-center overflow-hidden`}
             >
-              <h1 className="PPNeue 3xl:text-[24px] xl:text-[18px] 3xl:leading-[28px] md:text-[18px] md:leading-[22px] xl:leading-[20px] font-[400] text-[#FFF] 3xl:max-w-[167px] md:max-w-[167px]  w-full">
-                Facial Aesthetic Assessments
-              </h1>
-              <div className="3xl:max-w-[330px] xl:max-w-[222px] md:max-w-[292px] w-full xl:pt-[14px] md:pt-[8px] md:mr-[15px]  xl:border-t-[1.5px] md:border-t-[1px] border-solid border-[#FFF] xl:border-opacity-[0.3] md:border-opacity-[0.4] flex items-center ">
-                {UserInformation.map((i, index) => (
-                  <div
-                    key={index + "UserInformation"}
-                    className={`${
-                      i.title === "age /" &&
-                      "xl:w-[76px] md:w-[70px] 3xl:w-[64px]"
-                    } ${
-                      i.title === "gender /" &&
-                      "xl:w-[94px] md:w-[120px] 3xl:w-[124px]"
-                    } ${
-                      i.title === "descnent /" && "w-[124px]"
-                    }  flex flex-col 3xl:gap-[5px] xl:gap-[3px] md:gap-[4px] uppercase`}
-                  >
-                    <span
-                      className={` font-[500] 3xl:text-[13px] xl:leading-[13px] xl:text-[11px] text-[#FFF] opacity-[0.6]`}
+              <div
+                className={`${
+                  imageCropingAnimationForPersonalData
+                    ? "3xl:max-w-[405px] xl:max-w-[300px]   w-full xl:h-[350px] 3xl:h-[461px] ease-in 3xl:duration-[0.6s] xl:duration-[0.7s] "
+                    : " 3xl:max-w-[350px] xl:max-w-[300px]  ease-in 3xl:duration-[0.6s] xl:duration-[0.7s]  w-full 3xl:h-[410px] xl:h-[330px]  "
+                } md:max-w-[322px] xsm:max-w-[77.3%] md:h-[84.4%] w-full 3xl:pt-[18px] xl:pt-[15px] md:pt-[15px] 3xl:pl-[19px] xl:pl-[15px] md:pl-[15px] 3xl:pb-[14px] md:pb-[13px] mx-auto   xl:border-[1px] md:border-[1px] border-solid border-[#FFF] flex flex-col justify-between`}
+              >
+                <h1 className="PPNeue 3xl:text-[24px] xl:text-[18px] 3xl:leading-[28px] md:text-[18px] md:leading-[22px] xl:leading-[20px] font-[400] text-[#FFF] 3xl:max-w-[167px] md:max-w-[167px]  w-full">
+                  Facial Aesthetic Assessments
+                </h1>
+                <div className="3xl:max-w-[88.47%] xl:max-w-[89.3%] md:max-w-[292px]  xsm:max-w-[270px] w-full xl:pt-[14px] md:pt-[8px] xsm:pt-[14px] xl:mr-[15px] md:mr-[15px]  border-t-[1.5px] border-solid border-[#FFF] border-opacity-[0.3] flex items-center ">
+                  {UserInformation.map((i, index) => (
+                    <div
+                      key={index + "UserInformation"}
+                      className={`${
+                        i.title == "age /" &&
+                        "xl:w-[76px] xsm:w-[70px] 3xl:w-[64px]"
+                      } ${
+                        i.title == "gender /" &&
+                        "xl:w-[94px] md:w-[120px] xsm:w-[106px] 3xl:w-[124px]"
+                      } ${
+                        i.title == "descnent /" && "w-[124px]"
+                      }  flex flex-col 3xl:gap-[5px] md:gap-[5px] xsm:gap-[7px] xl:gap-[3px] uppercase`}
                     >
-                      {i.title}
-                    </span>
-                    <span className="font-[500] 3xl:text-[16px] xl:text-[13px] xl:leading-[13px] text-[#FFF] opacity-[0.8]">
-                      {i.desc}
-                    </span>
-                  </div>
-                ))}
+                      <span
+                        className={` font-[500] 3xl:text-[13px] md:leading-[13px] md:text-[11px] xsm:leading-[13px] xsm:text-[12px] text-[#FFF] opacity-[0.6]`}
+                      >
+                        {i.title}
+                      </span>
+                      <span className="font-[500] 3xl:text-[16px] md:text-[13px] md:leading-[13px] xsm:leading-[14px] xsm:text-[16px] text-[#FFF] opacity-[0.8]">
+                        {i.desc}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

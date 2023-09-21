@@ -9,7 +9,11 @@ export function MyProvider({ children }) {
   // Define the state or data you want to share
 
   const [imageCropingAnimation, setimageCropingAnimation] = useState(false);
-  const [imageCropingAnimationForPersonalData, setimageCropingAnimationForPersonalData] = useState(false);
+  const [
+    imageCropingAnimationForPersonalData,
+    setimageCropingAnimationForPersonalData,
+  ] = useState(false);
+  const [nextBtnShakingAnime, setnextBtnShakingAnime] = useState(null);
   const [navigation, setnavigation] = useState("/");
   const [TextRevealForNextBtn, setTextRevealForNextBtn] = useState(false);
   const [rightSideConditionallyRendering, setrightSideConditionallyRendering] =
@@ -22,6 +26,8 @@ export function MyProvider({ children }) {
     group: "",
     gender: "",
   });
+  const [uploadedImage, setuploadedImage] = useState("");
+  const [typewriterEffect, settypewriterEffect] = useState(null);
   return (
     <MyContext.Provider
       value={{
@@ -35,8 +41,14 @@ export function MyProvider({ children }) {
         setimageCropingAnimation,
         rightSideConditionallyRendering,
         setrightSideConditionallyRendering,
-        imageCropingAnimationForPersonalData
-        ,setimageCropingAnimationForPersonalData
+        imageCropingAnimationForPersonalData,
+        setimageCropingAnimationForPersonalData,
+        uploadedImage,
+        setuploadedImage,
+        nextBtnShakingAnime,
+        setnextBtnShakingAnime,
+        typewriterEffect,
+        settypewriterEffect
       }}
     >
       {children}

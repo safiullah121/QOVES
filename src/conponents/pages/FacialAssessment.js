@@ -89,7 +89,7 @@ const FacialAssessment = (props) => {
             </TextReveal>
             <div
               onClick={handleAssessmentButtonClick}
-              className={`group relative 3xl:max-w-[625px] cursor-pointer  xl:max-w-[415px] md:max-w-[418px] xsm:max-w-[348px] w-full 3xl:h-[202px] xl:h-[150px] xsm:h-[150px] xsm:mt-[38px] md:mt-[0px] bg-[#233137] 3xl:pt-[22px] xl:pt-[10px] xsm:pt-[13px] md:pt-[12px] 3xl:pl-[19px] md:pl-[15px] xsm:pl-[10px] xsm:pb-[15px] xl:pl-[15px]  flex flex-col justify-between 3xl:gap-[51px] xl:gap-[27px]  `}
+              className={`group relative 3xl:max-w-[623px] cursor-pointer  xl:max-w-[415px] md:max-w-[418px] xsm:max-w-[348px] w-full 3xl:h-[202px] xl:h-[150px] xsm:h-[150px] xsm:mt-[38px] md:mt-[0px] bg-[#233137] 3xl:pt-[22px] xl:pt-[10px] xsm:pt-[13px] md:pt-[12px] 3xl:pl-[19px] md:pl-[15px] xsm:pl-[10px] xsm:pb-[15px] xl:pl-[15px]  flex flex-col justify-between 3xl:gap-[51px] xl:gap-[27px]  `}
             >
               <div
                 className={`h-full w-0 top-0 left-0 absolute bg-white opacity-[0.1] group-hover:w-full  ease-in  duration-300`}
@@ -145,9 +145,9 @@ const FacialAssessment = (props) => {
           </div>
         </div>
         <div
-          className={` xl:bg-FormPhoto md:bg-FormPhoto_4 xsm:bg-FormPhoto_2 bg-cover mdHeight2 xsmHeight2 bg-center 3xl:max-w-[50.1%] 3xl:h-[90vh] xsm:max-w-[375px] md:max-w-[100%]  xl:h-[90vh]  xl:pt-0 md:pt-[120px] xsm:pt-[50px] w-full flex xl:items-center md:items-center xsm:pb-[40px] xsm:mt-[26px] md:mt-[0px] xl:pb-[0px]`}
+          className={` xl:bg-FormPhoto md:bg-FormPhoto_4 xsm:bg-FormPhoto_2  bg-no-repeat mdHeight2 xsmHeight2 bg-center 3xl:max-w-[50.1%] 3xl:h-[90vh] xsm:max-w-[375px] md:max-w-[100%]  xl:h-[90vh]  xl:pt-0 md:pt-[120px] xsm:pt-[50px] w-full flex xl:items-center md:items-center xsm:pb-[40px] xsm:mt-[26px] md:mt-[0px] xl:pb-[0px] 3xl:bg-110% xl:bg-110%`}
         >
-          <div className="3xl:max-w-[405px] xl:max-w-[48.23%] md:max-w-[322px] xsm:max-w-[77.3%] 3xl:pt-[18px] md:pt-[15px] xsm:pt-[10px] 3xl:pl-[19px] md:pl-[15px] xsm:pl-[10px] xsm:pb-[12px] xl:pt-[15px] xl:pl-[15px] 3xl:pb-[14px] md:pb-[12px] xl:pb-[13px] mx-auto  w-full xl:h-[47.8%] 3xl:h-[461px]  md:my-0 xsm:my-auto 3xl:border-[1.5px] xsm:border-[1px] border-solid border-[#FFF] flex flex-col xl:justify-between xl:gap-0 md:gap-[266px] xsm:gap-[246px]">
+          <div className="3xl:max-w-[405px] xl:max-w-[300px] md:max-w-[322px] xsm:max-w-[77.3%] 3xl:pt-[18px] md:pt-[15px] xsm:pt-[10px] 3xl:pl-[19px] md:pl-[15px] xsm:pl-[10px] xsm:pb-[12px] xl:pt-[15px] xl:pl-[15px] 3xl:pb-[14px] md:pb-[12px] xl:pb-[13px] mx-auto  w-full xl:h-[350px] 3xl:h-[461px]  md:my-0 xsm:my-auto 3xl:border-[1.5px] xsm:border-[1px] border-solid border-[#FFF] flex flex-col xl:justify-between xl:gap-0 md:gap-[266px] xsm:gap-[246px]">
             <h1 className="PPNeue 3xl:text-[24px] xl:text-[18px] 3xl:leading-[28px] md:text-[18px] md:leading-[22px] xl:leading-[20px] xsm:text-[20px] xsm:leading-[22px] font-[400] text-[#FFF] 3xl:max-w-[167px] xl:max-w-[167px] xsm:max-w-[167px]  w-full">
               Facial Aesthetic Assessments
             </h1>
