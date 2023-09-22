@@ -14,7 +14,7 @@ export function MyProvider({ children }) {
     setimageCropingAnimationForPersonalData,
   ] = useState(false);
   const [nextBtnShakingAnime, setnextBtnShakingAnime] = useState(null);
-  const [navigation, setnavigation] = useState("/");
+  const [navigation, setnavigation] = useState("/ImageUpload");
   const [TextRevealForNextBtn, setTextRevealForNextBtn] = useState(false);
   const [rightSideConditionallyRendering, setrightSideConditionallyRendering] =
     useState(false);
@@ -48,7 +48,7 @@ export function MyProvider({ children }) {
         nextBtnShakingAnime,
         setnextBtnShakingAnime,
         typewriterEffect,
-        settypewriterEffect
+        settypewriterEffect,
       }}
     >
       {children}

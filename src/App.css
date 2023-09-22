@@ -220,7 +220,21 @@ input::-webkit-inner-spin-button {
   cursor: transparent;
 }
 
+@keyframes translateAnimation {
+  0% {
+    transform: translateX(-60px);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
 
+.report-image1{
+  animation: translateAnimation 10s linear infinite; /* Adjust duration as needed */
+}
+.report-image2{
+  animation: translateAnimation 10s linear infinite; /* Adjust duration as needed */
+}
 
 
 

@@ -3,14 +3,48 @@ import React from "react";
 import Layout from "../common/Layout";
 import TextReveal from "../Animations/TextReveal";
 import MyContext from "../../Context";
-import axios from "axios";
-
+// import faceDetector from "./FaceDetection";
+import {
+  FaceDetector,
+  FilesetResolver,
+  Detection,
+} from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0";
 const ImageUpload = (props) => {
   const { uploadedImage, setuploadedImage } = useContext(MyContext);
   const [AddImageHover, setAddImageHover] = useState(false);
   const [checkingUploadImage, setcheckingUploadImage] = useState(false);
   const fileInputRef = useRef(null);
+  const faceDetectorRef = useRef(null);
+  useEffect(() => {
+    let runningMode = "IMAGE";
 
+    // Initialize the object detector
+    const initializefaceDetector = async () => {
+      const vision = await FilesetResolver.forVisionTasks(
+        "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/wasm"
+      );
+      let faceDetector = await FaceDetector.createFromOptions(vision, {
+        baseOptions: {
+          modelAssetPath: `https://storage.googleapis.com/mediapipe-models/face_detector/blaze_face_short_range/float16/1/blaze_face_short_range.tflite`,
+          delegate: "GPU",
+        },
+        runningMode: runningMode,
+      });
+      faceDetectorRef.current = faceDetector;
+      const image = document.createElement("image");
+      image.setAttribute(
+        "src",
+        "https://assets.codepen.io/9177687/female-4572747_640.jpg"
+      );
+      const detections = faceDetector.detect(image).detections;
+      console.log(detections);
+    };
+    initializefaceDetector();
+
+    /**
+     * Detect faces in still images on click
+     */
+  }, []);
   useEffect(() => {
     if (uploadedImage !== "") {
       setcheckingUploadImage(true);
@@ -18,23 +52,36 @@ const ImageUpload = (props) => {
   }, [uploadedImage]);
   const handleFileChange = (e) => {
     const file = e.target.files[0];
+    const image = document.createElement("image");
 
     if (file) {
       const reader = new FileReader();
 
       reader.onload = async (event) => {
         setuploadedImage(event.target.result);
+        image.setAttribute(
+          "src",
+          "https://assets.codepen.io/9177687/female-4572747_640.jpg"
+        );
+        // console.log(faceDetector, "faceDetector----");
+
+        // const image = event.target.result;
+        console.log(image, "image---");
+        // if (!faceDetector) return;
+
+        // const detections = faceDetector.detect(image);
+        // console.log(detections, "ddd ");
       };
       reader.readAsDataURL(file);
     }
   };
-  console.log(uploadedImage);
   const Recommendations = [
     "Remove your glasses",
     "Look directly at camera",
     "Pull hair back",
     "Keep neutral expression",
   ];
+
   const sampleImages = [
     {
       src: "/img/UploadImage_1.png",
@@ -220,7 +267,12 @@ const ImageUpload = (props) => {
                 </p>
               </div>
               <div className="xl:max-w-[95%] md:max-w-[95%] xsm:max-w-[100%]  w-full xl:h-[86%] md:h-[83.7%] xsm:h-[85.6%]  mx-auto my-auto flex items-center justify-center">
-                <img src={uploadedImage} alt="" className="w-full h-full" />
+                <img
+                  id="detected-image"
+                  src={uploadedImage}
+                  alt=""
+                  className="w-full h-full"
+                />
               </div>
             </div>
           </div>
